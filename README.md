@@ -12,6 +12,14 @@
 
 </div>
 
+### ✦ Try FinGuard AI — Interactive Demo
+
+[**Launch FinGuard AI ↗**](https://kegxthy.github.io/kegxthy/) · No login or API key needed for the browser-based financial screening sample.
+
+> Demo mode runs deterministic financial calculations locally in your browser. The full FastAPI / DeepSeek backend is separate and is not hosted by GitHub Pages. [View source](https://github.com/kegxthy/kegxthy/tree/main/finguard-ai).
+
+
+
 ---
 
 <table>
