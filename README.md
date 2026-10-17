@@ -3,7 +3,7 @@
 <h2>Hi, I'm Xiying 👋</h2>
 <p><b>AI × E-commerce × Product Thinking</b></p>
 <p>Building thoughtful products, from shopping journeys to intelligent workflows.</p>
-<img src="https://komarev.com/ghpvc/?username=kegxthy&label=Profile%20views&color=ba87cf&style=flat" alt="Profile views"/>
+<img src="https://komarev.com/ghpvc/?username=kegxthy&label=Profile%20views&color=4A9EDB&style=flat" alt="Profile views"/>
 </div>
 
 ### 🌷 About me
@@ -23,9 +23,9 @@
 ### 🧰 My toolkit
 <div align="center">
 <img src="https://skillicons.dev/icons?i=python,figma,github,git,vscode&theme=light" alt="Python, Figma, GitHub, Git and VS Code"/><br/>
-<img src="https://img.shields.io/badge/SQL-Analytics-557da2?style=flat-square" alt="SQL"/>
-<img src="https://img.shields.io/badge/Product-Design-b77fba?style=flat-square" alt="Product Design"/>
-<img src="https://img.shields.io/badge/AI-Workflows-cc87a5?style=flat-square" alt="AI Workflows"/>
+<img src="https://img.shields.io/badge/SQL-Analytics-254D86?style=flat-square" alt="SQL"/>
+<img src="https://img.shields.io/badge/Product-Design-6385C1?style=flat-square" alt="Product Design"/>
+<img src="https://img.shields.io/badge/AI-Workflows-80CFFF?style=flat-square" alt="AI Workflows"/>
 </div>
 
 ### 📈 GitHub activity
@@ -36,5 +36,5 @@
 
 <div align="center">
 <picture><source media="(prefers-color-scheme: dark)" srcset="garden-footer-night.svg"/><img src="garden-footer.svg" width="900" alt="Seasonal flower garden with animated cat"/></picture>
-<br/><sub>Weather-driven garden powered by <a href="https://github.com/yuki4266/living-scene">living-scene</a> · Weather reference: Shenzhen (configurable)</sub>
+<br/><sub>Weather-driven garden powered by <a href="https://github.com/yuki4266/living-scene">living-scene</a> · Weather reference: Guangzhou, China</sub>
 </div>
