@@ -1,52 +1,102 @@
 <div align="center">
-<img src="assets/agent-hero.svg" width="100%" alt="Typing animation: HELLO WORLD · I'M XIYING KONG"/>
-<br/>
-<img src="https://img.shields.io/badge/AI_Agent-Product_Manager-9FB9F1?style=flat-square" />
-<img src="https://img.shields.io/badge/B2B-Workflows-EFC6CF?style=flat-square" />
-<img src="https://img.shields.io/badge/Location-Guangzhou-EAEAF0?style=flat-square&labelColor=2D3144" />
+
+<img src="assets/agent-hero.svg" width="100%" alt="Animated introduction: Hello world, I'm Xiying Kong" />
+
+**AI Agent Product Manager · Enterprise Workflows · Skills & Vibe Coding**
+
+<img src="https://img.shields.io/badge/Based_in-Guangzhou-9FB9F1?style=flat-square&labelColor=2D3144" alt="Guangzhou"/>
+<img src="https://img.shields.io/badge/Focus-Agentic_Products-EFC6CF?style=flat-square&labelColor=2D3144" alt="Agentic products"/>
+<img src="https://komarev.com/ghpvc/?username=kegxthy&label=Profile%20views&color=9FB9F1&style=flat-square" alt="Profile views"/>
+
+*I turn complex business workflows into intuitive products — and explore how AI agents can make them smarter.*
+
 </div>
 
-### ✦ About me / 关于我
-我是 **孔希颖（Xiying Kong）**，华南理工大学金融科技本科毕业生。我的产品经历横跨 **电商 C 端交易与搜索推荐**、**金融 B 端系统设计**，目前重点探索 **AI Agent、Skills、企业级工作流与 Vibe Coding**。
+---
 
-> 我关注的不只是 AI 能生成什么，更关注它如何接入真实业务、遵循规则、处理异常，并交付可验证的结果。
+<table>
+<tr><td width="53%" valign="top">
 
-### ◈ Selected AI Projects / AI 项目作品集
+### 👋 About Me
 
-| Project | Product problem → AI workflow | Focus |
-|:--|:--|:--|
-| **01 · DeepSeek 企业财务风险预警 Agent** | 财务报告上传 → 信息识别 → 财务指标交叉校验 → 风险展示；已有 DEMO | Agent · 文档理解 · AI 报告 |
-| **02 · AI 商品图生成** | 商品原图 → 白底/透明底、多角度图生成 → Logo 清理与事实一致性审核 | AIGC · Human-in-the-loop |
-| **03 · 电商 AI 搜索** | 查询意图理解 → 商品检索与排序 → 可解释的搜索体验设计 | AI Search · NLP |
-| **04 · AI 商品自动打标** | 商品信息 → 标签建议 → 规则校验 → 运营使用 | Classification · Automation |
-| **05 · 分期乐产品设计 Skills** | 将 C 端与管理端产品设计流程、业务规范和验收标准沉淀为可复用 Skills | Skills · Vibe Coding |
+I'm **Xiying Kong**, a FinTech graduate from **South China University of Technology (SCUT)**, Class of 2026.
 
-<sub>注：项目实现阶段不同。这里展示已知的产品实践与设计方向，不将原型或方案描述为已上线系统。</sub>
+My background combines **consumer e-commerce product management** and **enterprise financial software design**. I'm now exploring **AI agents, reusable Skills, office automation, and vibe coding**.
 
-### ◈ Experience / 实习经历
+- **Product:** discovery, user journeys, prototypes, PRDs, launch delivery
+- **AI:** agent workflow design, human review, evaluation, tool/skill orchestration
+- **Data & design:** Python, SQL, Figma, Axure, funnel analysis
+- **Languages:** Chinese / English (CET-6)
 
-<div align="center"><img src="assets/experience.svg" width="100%" alt="Lexin and Kingdom internship experience cards"/></div>
+</td><td width="47%" valign="top">
 
-**乐信集团 · 科技零售部 | C 端产品经理（2026.03—2026.07）**
+### ✨ What I'm Exploring
 
-负责电商黄金流程、商品详情页、搜索推荐、3C 导购及会员促销等产品需求，累计交付 **30+ 项**。参与 618 大促交易链路、商详信息架构和推荐策略迭代；跨团队推进 PRD、评审、联调及上线验收。
+**Enterprise Office Agents**  
+Reliable workflows for document processing, knowledge retrieval, reporting, and task automation.
 
-**金证股份 · 投资科技事业群 | 产品设计师（2025.07—2026.01）**
+**Skills & Vibe Coding**  
+Turning repeatable business rules and product design practices into reusable agent instructions and validation steps.
 
-参与企业级 TA 4.0 系统的业务规则、账户/交易流程和产品设计。关注异常交易处理、批量操作、数据迁移、复核与可追溯性，将复杂业务约束转化为可落地的产品方案。
+**AI + Commerce**  
+Search experiences, product imagery, attribute tagging, and operational efficiency.
 
-### ◈ How I design an Agent
+</td></tr>
+</table>
 
-`Business Goal` → `User & Context` → `Task Decomposition` → `Tools / Skills` → `Guardrails & Review` → `Evaluation` → `Iteration`
+### 💼 Internship Experience
 
-- **企业办公 Agent：** 权限边界、知识检索、流程编排、人工审批、结果可追溯
-- **Vibe Coding / Skills：** 可复用的任务指令、上下文管理、工具调用、产物验收与迭代
-- **数据与产品：** Python · SQL · Figma · Axure · PRD · Funnel · A/B Testing
+<table>
+<tr>
+<td width="27%" align="center" valign="middle"><img src="assets/lexin-logo.webp" width="180" alt="LEXIN official logo provided by the profile owner"/></td>
+<td valign="top"><strong>LEXIN Group · Fintech Mall / Retail Technology</strong><br/>
+<sub>Consumer Product Manager · Mar 2026 – Jul 2026</sub><br/><br/>
+Owned and delivered improvements across product detail pages, shopping cart, checkout, payments, membership, search and recommendations. Contributed to the 618 shopping festival and shipped <strong>30+ product requirements</strong>, working with engineering, testing and operations from PRD to release.</td>
+</tr>
+<tr>
+<td align="center" valign="middle"><img src="assets/kingdom-logo.webp" width="190" alt="Kingdom Securities / Kingdom Technology official logo provided by the profile owner"/></td>
+<td valign="top"><strong>Kingdom Technology · Investment Technology Division</strong><br/>
+<sub>Product Designer / Product Intern · Jul 2025 – Jan 2026</sub><br/><br/>
+Worked on enterprise-grade <strong>Transfer Agency (TA 4.0)</strong> workflows: account operations, transactions, exception handling, review processes and data migration. Translated complex financial business rules into traceable functional designs and acceptance criteria.</td>
+</tr>
+</table>
 
-### ◈ GitHub Activity
+### 🤖 Selected AI & Agent Projects
+
+| Project | Problem & product approach | Areas |
+|---|---|---|
+| **01 · DeepSeek Financial Risk Agent** | Financial-report upload → extraction → ratio cross-check → risk explanation; prototype demo built | Agent workflow · Reports · FinTech |
+| **02 · E-commerce Product Image AI** | Generate white-background, transparent-background and multi-angle product visuals, with platform-logo cleanup and review | Generative AI · Human-in-the-loop |
+| **03 · AI Shopping Search** | Product concept for understanding search intent, retrieving products and improving result presentation | NLP · AI Search |
+| **04 · AI Product Attribute Tagging** | Generate structured product attributes for listing workflows and targeted operations, with rule checks | Automation · Classification |
+| **05 · Product Design Skills for Fenqile** | Package consumer-app and admin-console design processes into reusable product-design Skills | Skills · Vibe Coding |
+
+<sub>Project descriptions reflect different stages of development, experimentation and product design; prototypes and concepts are not presented as production deployments.</sub>
+
+### 🧭 How I Approach Agent Products
+
+`Business Context` → `Task Breakdown` → `Data & Tools` → `Skills / Orchestration` → `Permissions & Review` → `Evaluation`
+
+I care especially about **enterprise reliability**: grounding, business constraints, auditability, exception paths, human oversight and measurable user outcomes.
+
+### 🛠 Product Toolkit
 
 <div align="center">
-<img src="https://github-readme-stats.vercel.app/api?username=kegxthy&show_icons=true&hide_border=true&theme=transparent" alt="GitHub activity" />
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kegxthy/kegxthy/output/github-contribution-grid-snake-dark.svg"/><img src="https://raw.githubusercontent.com/kegxthy/kegxthy/output/github-contribution-grid-snake.svg" alt="Contribution snake"/></picture>
-<br/><sub>✦ Designed in Snow's palette: white · misty blue · blush pink · cool gray ✦</sub>
+<img src="https://skillicons.dev/icons?i=python,figma,git,github,vscode&theme=light" alt="Python, Figma, Git, GitHub and VS Code" /><br/>
+<img src="https://img.shields.io/badge/SQL-Analytics-2D3144?style=flat-square" />
+<img src="https://img.shields.io/badge/Axure-Product_Prototyping-9FB9F1?style=flat-square" />
+<img src="https://img.shields.io/badge/Agent-Workflow_Design-EFC6CF?style=flat-square" />
+</div>
+
+### 📈 GitHub Activity
+
+<div align="center">
+<img src="https://github-readme-stats.vercel.app/api?username=kegxthy&show_icons=true&hide_border=true&theme=transparent" alt="GitHub stats" />
+<br/>
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/kegxthy/kegxthy/output/github-contribution-grid-snake-dark.svg"/>
+<img src="https://raw.githubusercontent.com/kegxthy/kegxthy/output/github-contribution-grid-snake.svg" alt="GitHub contribution snake"/>
+</picture>
+<br/>
+<sub>Snow Palette · White #FFFFFF · Misty Blue #9FB9F1 · Blush Pink #EFC6CF · Cool Gray #EAEAF0</sub>
 </div>
