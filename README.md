@@ -1,5 +1,5 @@
 <div align="center">
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg"/><img src="assets/banner-light.svg" width="100%" alt="Xiying Kong | AI & Product"/></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg"/><img src="assets/dc07d603828d3f08015f4626072ec07e.png" width="100%" alt="Snow — Night Work" /></picture>
 <h2>Hi, I'm Xiying 👋</h2>
 <p><b>AI × E-commerce × Product Thinking</b></p>
 <p>Building thoughtful products, from shopping journeys to intelligent workflows.</p>
