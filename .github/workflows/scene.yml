@@ -1,0 +1,38 @@
+name: Living scene
+on:
+  schedule:
+    - cron: "23 */3 * * *"
+  workflow_dispatch:
+    inputs:
+      weather:
+        description: "Optional: clear/clouds/rain/snow/fog/storm"
+        required: false
+        default: ""
+      season:
+        description: "Optional: spring/summer/autumn/winter"
+        required: false
+        default: ""
+      force:
+        description: "Force rendering"
+        required: false
+        default: "false"
+permissions:
+  contents: write
+jobs:
+  scene:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: yuki4266/living-scene@v1
+        with:
+          lat: "22.54"
+          lon: "114.06"
+          tz: Asia/Shanghai
+          header: header.svg
+          sky: "false"
+          weather: ${{ inputs.weather }}
+          season: ${{ inputs.season }}
+          force: ${{ inputs.force }}
+          commit-message: "🌦 scene sync: {state}"
