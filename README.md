@@ -3,7 +3,7 @@
 <h2>Hi, I'm Xiying 👋</h2>
 <p><b>AI × E-commerce × Product Thinking</b></p>
 <p>Building thoughtful products, from shopping journeys to intelligent workflows.</p>
-<img src="https://komarev.com/ghpvc/?username=kegxthy&label=Profile%20views&color=4A9EDB&style=flat" alt="Profile views"/>
+<img src="https://komarev.com/ghpvc/?username=kegxthy&label=Profile%20views&color=9FB9F1&style=flat" alt="Profile views"/>
 </div>
 
 ### 🌷 About me
@@ -23,9 +23,9 @@
 ### 🧰 My toolkit
 <div align="center">
 <img src="https://skillicons.dev/icons?i=python,figma,github,git,vscode&theme=light" alt="Python, Figma, GitHub, Git and VS Code"/><br/>
-<img src="https://img.shields.io/badge/SQL-Analytics-254D86?style=flat-square" alt="SQL"/>
-<img src="https://img.shields.io/badge/Product-Design-6385C1?style=flat-square" alt="Product Design"/>
-<img src="https://img.shields.io/badge/AI-Workflows-80CFFF?style=flat-square" alt="AI Workflows"/>
+<img src="https://img.shields.io/badge/SQL-Analytics-2D3144?style=flat-square" alt="SQL"/>
+<img src="https://img.shields.io/badge/Product-Design-9FB9F1?style=flat-square" alt="Product Design"/>
+<img src="https://img.shields.io/badge/AI-Workflows-EFC6CF?style=flat-square" alt="AI Workflows"/>
 </div>
 
 ### 📈 GitHub activity
