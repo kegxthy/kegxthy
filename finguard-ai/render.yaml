@@ -17,6 +17,10 @@ services:
         value: deepseek-flash
       - key: FINGUARD_ACCESS_TOKEN
         generateValue: true
+      - key: FINGUARD_MODE
+        value: workspace
+      - key: FINGUARD_RETENTION_HOURS
+        value: "24"
       - key: FINGUARD_DB
         value: /var/data/tasks.sqlite3
     disk:

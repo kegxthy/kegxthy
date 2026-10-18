@@ -32,7 +32,7 @@ Set `LLM_API_KEY` privately in the current shell. Optional `LLM_MODEL` defaults 
 python -m uvicorn server:app --host 127.0.0.1 --port 8000 --workers 1
 ```
 
-Open http://127.0.0.1:8000. `/health` reports configuration; `/docs` exposes API schemas. Startup and offline tests work without a model key; creating analysis tasks requires one and otherwise returns 503. Never put keys in chat or git.
+Open http://127.0.0.1:8000. `/health` reports configuration; `/docs` exposes API schemas. Workspace startup requires a random 32–256 character ASCII `FINGUARD_ACCESS_TOKEN`, including localhost. Enter it in the UI. Offline tests do not need a real model key; creating analysis requires `LLM_API_KEY` or `DEEPSEEK_API_KEY` and otherwise returns 503. Never put keys in chat or git.
 
 ## Workflow
 
@@ -59,12 +59,18 @@ See the bilingual [deployment guide](README_DEPLOY.md). `server:app` is the new 
 
 ## Limits and security
 
-This is one trusted-team workspace, not a multi-tenant public SaaS. Remote API access requires `FINGUARD_ACCESS_TOKEN`; all holders share all tasks. The token stays in browser memory and the model key stays server-side. Reverse proxies must preserve client addresses correctly. Never forward a tokenless localhost service publicly.
+This is one trusted-team workspace, not a multi-tenant public SaaS. All workspace API access requires `FINGUARD_ACCESS_TOKEN`; all holders share all tasks. The token stays in browser memory and the model key stays server-side. Authorization never depends on peer IP or forwarding headers. A shared token is not public-user authentication. `FINGUARD_MODE=public_demo` is interface-only: all APIs are disabled and no workspace database is opened.
 
 Limits: 12 MB per file, 300 PDF pages, 600,000 extracted characters, 40 MB expanded ZIP, two active jobs, 100 saved tasks, 600 seconds per phase and 60 seconds per provider HTTP request. No OCR; spreadsheet formulas require cached values. Complex table semantics need human review. Run one process and one instance. Interrupted tasks become failed after restart; completed and review tasks persist. There is no distributed queue, automatic execution recovery, organization accounts, encrypted local database, malware sandbox or automated backup.
 
 Quote matching verifies source identity, verbatim text and numeric presence, not semantic truth. Model observations with Arabic digits or invalid source IDs are discarded; remaining interpretation is still not independently verified. Screening thresholds are illustrative and sector-dependent. Signals are not audit conclusions, ratings, default predictions or investment advice. No Z-score is invented.
 
-SQLite stores extracted text, focus, confirmed figures, events and reports, not original files. Default path: `data/tasks.sqlite3`; override with `FINGUARD_DB`. Task deletion does not erase external backups or provider records. Confidential documents require separately approved provider and retention policies.
+Complete extracted text is retained only while awaiting confirmation; confirmation/failure/interruption removes it. API responses expose evidence lines, never full source documents. New required figure fields are `scope`, `line_number` (1-based), and `number_index` (0-based numeric token on the exact line). Reporting periods must be YYYY-MM-DD/YYYY-MM-DD, currencies supported ISO codes and scope consolidated. Old clients must migrate. Exact row, supported label and numeric-token checks reduce wrong-field matches but do not establish column/period semantics; human review remains mandatory. SQLite retains focus, selected evidence, confirmed figures, events and reports, not original files. Default path: `data/tasks.sqlite3`; override with `FINGUARD_DB`. Task deletion does not erase external backups or provider records. Confidential documents require separately approved provider and retention policies.
 
 [Architecture, PRD, API and rules](docs/ARCHITECTURE.md) · [Initial audit](docs/AUDIT.md)
+
+## Review hardening and Alibaba Cloud
+
+See [review fixes](docs/REVIEW_FIXES.md) and [Alibaba FC deployment boundary](docs/ALIYUN_FC.md). The existing Hangzhou `kegxthy-agent-lab` Node.js function is a different project and must not be overwritten or counted as a FinGuard deployment. The current Python SQLite/in-process executor is not a durable FC deployment.
+
+Retention defaults to 24 hours, configurable to 1–168 using `FINGUARD_RETENTION_HOURS`. Expiry is creation-based and enforced at startup, on API access and every minute; updates do not extend it. Active phases finish before expiry deletion. Stored task payload budget is approximately 20 MB. See deployment guidance for cleanup and SQLite-native backups.

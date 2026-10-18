@@ -19,7 +19,10 @@ def test_public_report_verified_arithmetic():
         {
             "field": field,
             "value": value,
-            "period": "2024-09-28",
+            "period": "2023-10-01/2024-09-28",
+            "scope": "consolidated",
+            "line_number": 1 if field == "current_assets" else 2,
+            "number_index": 0,
             "currency": "USD",
             "scale": 1000000,
             "source_id": "page:34",

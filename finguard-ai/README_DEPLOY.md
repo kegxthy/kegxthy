@@ -4,7 +4,7 @@
 
 ## Local / 本地
 
-Install Python 3.12 and `requirements.txt`. Set `LLM_API_KEY` privately in the shell. Optional `LLM_MODEL` defaults to `deepseek-flash`; only the official DeepSeek endpoint is approved. Run from `finguard-ai/`:
+Install Python 3.12 and `requirements.txt`. Set a random 32–256 character ASCII `FINGUARD_ACCESS_TOKEN` (required even on localhost) and `LLM_API_KEY` or `DEEPSEEK_API_KEY` privately in the shell. Optional `LLM_MODEL` defaults to `deepseek-flash`; only the official DeepSeek endpoint is approved. Run from `finguard-ai/`:
 
 ```bash
 python -m uvicorn server:app --host 127.0.0.1 --port 8000 --workers 1
@@ -13,6 +13,7 @@ python -m uvicorn server:app --host 127.0.0.1 --port 8000 --workers 1
 PowerShell 私密输入密钥（不会回显），然后启动：
 
 ```powershell
+$env:FINGUARD_ACCESS_TOKEN = python -c "import secrets; print(secrets.token_urlsafe(32))"
 $secret = Read-Host 'DeepSeek API key' -AsSecureString
 $env:LLM_API_KEY = [System.Net.NetworkCredential]::new('', $secret).Password
 python -m uvicorn server:app --host 127.0.0.1 --port 8000 --workers 1
@@ -54,3 +55,22 @@ References: [Blueprint specification](https://render.com/docs/blueprint-spec), [
 8. Delete the acceptance task when finished. Do not publish provider keys, tokens or confidential source data in screenshots/logs.
 
 Do not mark deployment complete if any gate is untested. See [VALIDATION.md](docs/VALIDATION.md) for the current evidence and remaining gates.
+
+## Retention / 清理与备份
+
+`FINGUARD_MODE=workspace` is the default and requires authentication for all API calls. `public_demo` only shows UI, disables all APIs and does not open a workspace database. Never treat a shared team token as public-user authentication.
+
+`FINGUARD_RETENTION_HOURS=24` defaults to a 24-hour creation-based TTL; valid range 1–168. Expired records are removed at startup, during API access and every minute; an active phase is allowed to finish before cleanup. Complete extracted sources are removed immediately after confirmation or failure. API responses contain evidence lines only. Startup also scrubs full sources from legacy terminal records.
+
+Run maintenance while the application is stopped (it does not share active-job leases across processes):
+
+```bash
+python maintenance.py cleanup
+python maintenance.py backup --destination /private/backup/finguard-unique-name.sqlite3
+```
+
+Backup refuses overwriting an existing file and uses SQLite's online backup API. To restore, stop the application, preserve the current database privately, place a verified backup at FINGUARD_DB and restart. Verify task state/expiry/auth; interrupted tasks become failed. Restrict backup access and apply a separate backup TTL. Task deletion/secure_delete does not erase backup copies or provider retention.
+
+## 阿里云函数计算（实际目标） / Actual target: Alibaba FC
+
+The user confirmed the existing backend is FC in Hangzhou, custom Node.js 20, port 9000, not ECS. Follow [ALIYUN_FC.md](docs/ALIYUN_FC.md). Do not SSH, overwrite the existing Node function, claim /health validates FinGuard, or upload this Python directory as if it supplied durable FC storage/dispatch. The Render configuration above is an optional alternative, not the selected deployment target.

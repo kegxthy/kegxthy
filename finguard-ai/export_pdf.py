@@ -38,7 +38,7 @@ def report_pdf(task):
     heading("Confirmed figures / 已确认数据")
     for f in task["figures"]:
         add(
-            f"{f['field']}: {f['value']} × {f['scale']} {f['currency']} | {f['period']} | {f['source_id']}"
+            f"{f['field']}: {f['value']} × {f['scale']} {f['currency']} | {f['period']} | {f['scope']} | {f['source_id']}:L{f['line_number']} [#{f['number_index']}]"
         )
     heading("Calculated ratios / 确定性计算")
     for name, ratio in task["result"]["ratios"].items():
@@ -71,7 +71,9 @@ def report_pdf(task):
         add(call["tool"] + ": completed / 已执行")
     add("Source evidence / 来源证据")
     for f in task["figures"]:
-        add(f["source_id"] + ": " + f["quote"])
+        add(
+            f"{f['source_id']}:L{f['line_number']} [#{f['number_index']}]: {f['quote']}"
+        )
     out = io.BytesIO()
 
     def footer(canvas, doc):

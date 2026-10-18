@@ -7,6 +7,8 @@ services:
       LLM_API_KEY: ${LLM_API_KEY:?Set LLM_API_KEY in your shell}
       LLM_MODEL: ${LLM_MODEL:-deepseek-flash}
       FINGUARD_ACCESS_TOKEN: ${FINGUARD_ACCESS_TOKEN:?Set a random workspace token}
+      FINGUARD_MODE: workspace
+      FINGUARD_RETENTION_HOURS: ${FINGUARD_RETENTION_HOURS:-24}
       FINGUARD_DB: /app/data/tasks.sqlite3
     volumes:
       - finguard-data:/app/data

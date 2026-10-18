@@ -37,7 +37,14 @@ def main():
             {
                 "field": field,
                 "value": value,
-                "period": "2024-09-28",
+                "period": "2023-10-01/2024-09-28",
+                "scope": "consolidated",
+                "line_number": next(
+                    i
+                    for i, text in enumerate(source["text"].splitlines(), 1)
+                    if text.strip() == line
+                ),
+                "number_index": 0,
                 "currency": "USD",
                 "scale": 1000000,
                 "source_id": source["id"],

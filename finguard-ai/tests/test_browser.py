@@ -24,7 +24,7 @@ def test_browser_upload_confirm_evidence_export(monkeypatch, tmp_path):
 
     monkeypatch.setenv("FINGUARD_DB", str(tmp_path / "browser.db"))
     monkeypatch.setenv("LLM_API_KEY", "mock-provider-only")
-    monkeypatch.setenv("FINGUARD_ACCESS_TOKEN", "browser-test-token")
+    monkeypatch.setenv("FINGUARD_ACCESS_TOKEN", "browser-test-token-" + "b" * 32)
 
     async def fake(messages, tools=None):
         if not tools:
@@ -72,7 +72,7 @@ def test_browser_upload_confirm_evidence_export(monkeypatch, tmp_path):
             page.locator("#lang").click()
             page.reload()
             assert page.locator("html").get_attribute("lang") == "en"
-            page.locator("#token").fill("browser-test-token")
+            page.locator("#token").fill("browser-test-token-" + "b" * 32)
             page.locator("#file").set_input_files(
                 {
                     "name": "explicit-test-fixture.pdf",

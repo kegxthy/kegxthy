@@ -13,24 +13,30 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from finance import verify, calculate, screen
 import workflow
 import server
+from conftest import TEST_TOKEN
 
 
 def fig(field="current_assets", value="80"):
     return dict(
         field=field,
         value=value,
-        period="2025",
+        period="2025-01-01/2025-12-31",
+        scope="consolidated",
+        line_number=2 if field == "current_liabilities" else 1,
+        number_index=0,
         currency="USD",
         scale=1,
         source_id="page:1",
-        quote="Current assets 80; Current liabilities 100",
+        quote="Current liabilities 100"
+        if field == "current_liabilities"
+        else "Current assets 80",
     )
 
 
 def pdf_bytes():
     with fitz.open() as doc:
         p = doc.new_page()
-        p.insert_text((50, 70), fig()["quote"])
+        p.insert_text((50, 70), "Current assets 80\nCurrent liabilities 100")
         return doc.tobytes()
 
 
@@ -60,9 +66,11 @@ def test_ratios_units_missing_and_rules():
     b["value"] = "0"
     assert "current_ratio" not in calculate([a, b])[0]
     b["value"] = "100"
-    b["period"] = "2024"
-    assert "current_ratio" not in calculate([a, b])[0]
-    assert "current_ratio" not in calculate([a, a, b])[0]
+    b["period"] = "2024-01-01/2024-12-31"
+    with pytest.raises(ValueError, match="mismatch"):
+        calculate([a, b])
+    with pytest.raises(ValueError, match="Duplicate"):
+        calculate([a, a, b])
 
 
 def test_thresholds_and_cash():
@@ -189,7 +197,6 @@ def poll(c, token, status):
 def test_api_pdf_persistence_security(monkeypatch, tmp_path):
     monkeypatch.setenv("FINGUARD_DB", str(tmp_path / "tasks.db"))
     monkeypatch.setenv("LLM_API_KEY", "test-only")
-    monkeypatch.delenv("FINGUARD_ACCESS_TOKEN", raising=False)
 
     async def completion(messages, tools=None):
         return (
@@ -203,7 +210,7 @@ def test_api_pdf_persistence_security(monkeypatch, tmp_path):
         )
 
     monkeypatch.setattr(workflow, "completion", completion)
-    with TestClient(server.app) as c:
+    with TestClient(server.app, headers={"Authorization": "Bearer " + TEST_TOKEN}) as c:
         assert c.get("/health").status_code == 200
         assert (
             c.post("/api/tasks", files={"file": ("a.pdf", pdf_bytes())}).status_code
@@ -252,19 +259,21 @@ def test_api_pdf_persistence_security(monkeypatch, tmp_path):
             ).status_code
             == 409
         )
-    with TestClient(server.app) as c:
+    with TestClient(server.app, headers={"Authorization": "Bearer " + TEST_TOKEN}) as c:
         assert c.get("/api/tasks/" + token).json()["status"] == "completed"
-        monkeypatch.setenv("FINGUARD_ACCESS_TOKEN", "test-token")
+        monkeypatch.setenv("FINGUARD_ACCESS_TOKEN", "rotated-token-" + "z" * 32)
         assert c.get("/api/tasks").status_code == 401
         assert (
             c.get(
-                "/api/tasks", headers={"Authorization": "Bearer test-token"}
+                "/api/tasks",
+                headers={"Authorization": "Bearer rotated-token-" + "z" * 32},
             ).status_code
             == 200
         )
         assert (
             c.delete(
-                "/api/tasks/" + token, headers={"Authorization": "Bearer test-token"}
+                "/api/tasks/" + token,
+                headers={"Authorization": "Bearer rotated-token-" + "z" * 32},
             ).status_code
             == 204
         )
@@ -273,8 +282,7 @@ def test_api_pdf_persistence_security(monkeypatch, tmp_path):
 def test_missing_key_and_failure(monkeypatch, tmp_path):
     monkeypatch.setenv("FINGUARD_DB", str(tmp_path / "tasks.db"))
     monkeypatch.delenv("LLM_API_KEY", raising=False)
-    monkeypatch.delenv("FINGUARD_ACCESS_TOKEN", raising=False)
-    with TestClient(server.app) as c:
+    with TestClient(server.app, headers={"Authorization": "Bearer " + TEST_TOKEN}) as c:
         assert (
             c.post(
                 "/api/tasks",
