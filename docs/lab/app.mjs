@@ -1,6 +1,7 @@
 import{financial,parseIntent,searchCatalog,tagProduct,skillMarkdown}from"./core.mjs";
-const $=s=>document.querySelector(s),panel=$("#panel");let tab="finance",last=null,image=null,processed=false;
+const $=s=>document.querySelector(s),panel=$("#panel");let tab=new URLSearchParams(location.search).get("project")||"finance",last=null,image=null,processed=false;
 const samples={finance:"revenue=12000\nnet_profit=800\noperating_cash_flow=-200\naccounts_receivable=4500\ncurrent_assets=3000\ncurrent_liabilities=4000\ntotal_assets=15000\ntotal_liabilities=11000",search:"500元以内，通勤用的降噪耳机",tags:JSON.stringify({name:"基础棉质短袖",category:"服装",material:"棉",color:"白"},null,2),skill:"虚构商城的商品管理页面。顶部有商品名称、类目和状态筛选；中间有商品列表，列为名称、价格、库存和状态；支持重置、分页和批量下架。权限、下架前置条件与审批流程待确认。"};
+if(!["finance","image","search","tags","skill"].includes(tab))tab="finance";
 const descriptions={finance:["财务风险 Agent","明确字段 → 确定性计算 → 规则筛查 → 可选模型解释 → 人工复核","输入统一币种和单位的 key=value 字段，或上传 UTF-8 TXT / CSV。此模块不自动解析 PDF。"],search:["AI 商品搜索","需求 → 意图解析 → 库存与硬条件校验 → 目录检索 → 结果解释","在 6 个合成商品中检索。浏览器模式使用规则解析；开启模型后由 DeepSeek 解析意图，再由工具执行检索。"],tags:["商品标签审核","显式字段 → 受控词表校验 → 拒绝原因 → 人工确认 → 导出","输入商品 JSON。仅从 category、material、color 明确字段生成候选标签；不从名称推断材质或营销功效。"],skill:["产品设计 Skills","脱敏页面证据 → 观察与假设分离 → Skill 草案 → 人工确认 → 导出","文字事实可以直接生成 Skill。截图可本地预览；开启模型并配置视觉模型后，才会发送截图进行识别。"]};
 function download(name,data,type="application/json"){const blob=new Blob([typeof data==="string"?data:JSON.stringify(data,null,2)],{type});const url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
 function jsonView(value,target){const pre=document.createElement("pre");pre.textContent=typeof value==="string"?value:JSON.stringify(value,null,2);target.append(pre)}
@@ -64,4 +65,4 @@ function renderImage(){
 document.querySelectorAll("[data-tab]").forEach(b=>b.onclick=()=>{tab=b.dataset.tab;document.querySelectorAll("[data-tab]").forEach(x=>x.setAttribute("aria-selected",String(x===b)));render()});
 $("#health").onclick=async()=>{try{const res=await fetch(backend()+"/health",{signal:AbortSignal.timeout(90000)});const d=await res.json();if(!res.ok)throw Error("后端连接失败");$("#connection").textContent=d.llm_configured?"后端在线，模型已配置。截图识别："+(d.vision_configured?"已配置":"未配置"):"后端在线，尚未配置模型 Key 与演示口令"}catch{$("#connection").textContent="未连接到后端；浏览器工具模式仍可使用。请检查 Render 地址或等待免费实例唤醒。"}};
 $("#llm").onchange=()=>{$("#mode").textContent=$("#llm").checked?"真实 DeepSeek 模式 · 需后端配置":"浏览器工具模式 · 无模型费用"};
-render();
+document.querySelectorAll("[data-tab]").forEach(x=>x.setAttribute("aria-selected",String(x.dataset.tab===tab)));render();

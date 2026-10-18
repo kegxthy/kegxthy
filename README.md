@@ -12,6 +12,15 @@
 
 </div>
 
+
+### Try Agent Lab — 5 Product Workflows
+
+[**打开交互工作台 ↗**](https://kegxthy.github.io/kegxthy/lab/) · [产品作品集](https://kegxthy.github.io/kegxthy/portfolio/) · [源码与部署](agent-lab/README.md)
+
+Financial screening · Product image processing · Catalog search · Attribute review · Design Skills
+
+Browser tools work without an API key. Optional DeepSeek calls require a separately configured backend. New independent portfolio MVPs; simulated data and proposed metrics are not internship achievements. Multi-angle image generation is not connected yet.
+
 ### ✦ Try FinGuard AI — Interactive Demo
 
 [**Launch FinGuard AI ↗**](https://kegxthy.github.io/kegxthy/) · No login or API key needed for the browser-based financial screening sample.
@@ -64,7 +73,7 @@ Owned and delivered improvements across product detail pages, shopping cart, che
 <tr>
 <td align="center" valign="middle"><img src="assets/kingdom-logo.webp" width="190" alt="Kingdom Securities / Kingdom Technology official logo provided by the profile owner"/></td>
 <td valign="top"><strong>Kingdom Technology · Investment Technology Division</strong><br/>
-<sub>Product Designer / Product Intern · Jul 2025 – Jan 2026</sub><br/><br/>
+<sub>Product Designer / Product Intern · Aug 2025 – Jan 2026</sub><br/><br/>
 Worked on enterprise-grade <strong>Transfer Agency (TA 4.0)</strong> workflows: account operations, transactions, exception handling, review processes and data migration. Translated complex financial business rules into traceable functional designs and acceptance criteria.</td>
 </tr>
 </table>
@@ -110,11 +119,8 @@ I care especially about **enterprise reliability**: grounding, business constrai
 </div>
 
 
-### AI Agent 产品作品集 · 中文交互 Demo
 
-[打开五个项目的作品集 Demo](https://kegxthy.github.io/kegxthy/portfolio/) · [网页源码](docs/portfolio/index.html)
-
-面向企业办公 Agent 与 B 端 Skills / Vibe coding 两个方向。交互使用固定合成示例；详细方案属于作品集设计建议，实际职责、完成范围与业绩待补充核实。
+### 项目案例与产品决策
 
 - [企业财务风险预警 Agent](projects/financial-agent/README.md)
 - [AI 商品图生产工作台](projects/product-image/README.md)
@@ -122,4 +128,4 @@ I care especially about **enterprise reliability**: grounding, business constrai
 - [AI 商品标签生成](projects/product-tagging/README.md)
 - [截图驱动的产品设计 Skills](projects/design-skills/README.md)
 
-[免费后端部署建议与限制](projects/HOSTING.md)
+项目文档说明当前能力、产品决策、异常路径和待验证指标。无已核实结果的指标不作为个人业绩。
