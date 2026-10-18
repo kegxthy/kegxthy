@@ -108,3 +108,18 @@ I care especially about **enterprise reliability**: grounding, business constrai
 <br/>
 <sub>Snow Palette · White #FFFFFF · Misty Blue #9FB9F1 · Blush Pink #EFC6CF · Cool Gray #EAEAF0</sub>
 </div>
+
+
+### AI Agent 产品作品集 · 中文交互 Demo
+
+[打开五个项目的作品集 Demo](https://kegxthy.github.io/kegxthy/portfolio/) · [网页源码](docs/portfolio/index.html)
+
+面向企业办公 Agent 与 B 端 Skills / Vibe coding 两个方向。交互使用固定合成示例；详细方案属于作品集设计建议，实际职责、完成范围与业绩待补充核实。
+
+- [企业财务风险预警 Agent](projects/financial-agent/README.md)
+- [AI 商品图生产工作台](projects/product-image/README.md)
+- [电商 AI 搜索](projects/shopping-search/README.md)
+- [AI 商品标签生成](projects/product-tagging/README.md)
+- [截图驱动的产品设计 Skills](projects/design-skills/README.md)
+
+[免费后端部署建议与限制](projects/HOSTING.md)
