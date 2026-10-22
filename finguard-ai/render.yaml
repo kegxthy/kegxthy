@@ -2,6 +2,28 @@ services:
   - type: web
     name: finguard-ai
     runtime: python
+    rootDir: finguard-ai
+    branch: feat/finguard-agent-v1
+    autoDeployTrigger: "off"
     buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
+    startCommand: uvicorn server:app --host 0.0.0.0 --port $PORT --workers 1
     healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.10
+      - key: LLM_API_KEY
+        sync: false
+      - key: LLM_MODEL
+        value: deepseek-flash
+      - key: FINGUARD_ACCESS_TOKEN
+        generateValue: true
+      - key: FINGUARD_MODE
+        value: workspace
+      - key: FINGUARD_RETENTION_HOURS
+        value: "24"
+      - key: FINGUARD_DB
+        value: /var/data/tasks.sqlite3
+    disk:
+      name: finguard-data
+      mountPath: /var/data
+      sizeGB: 1
